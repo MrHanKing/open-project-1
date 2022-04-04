@@ -1,7 +1,10 @@
 ﻿using System;
 using TMPro;
-using UnityEditor.Localization;
 using UnityEngine.Events;
+#if UNITY_EDITOR
+using UnityEditor.Localization;
+#endif
+
 
 namespace UnityEngine.Localization.Components
 {
@@ -11,6 +14,7 @@ namespace UnityEngine.Localization.Components
 	[AddComponentMenu("Localization/Asset/Localize TMPro Font Event")]
 	public class LocalizeTMProFontEvent : LocalizedAssetEvent<TMP_FontAsset, LocalizedTMProFont, UnityEventFont>
 	{
+#if UNITY_EDITOR
 		private void Reset()
 		{
 			//Set up Unity Event automatically
@@ -34,6 +38,7 @@ namespace UnityEngine.Localization.Components
 				}
 			}
 		}
+#endif
 	}
 
 	[Serializable]
@@ -41,6 +46,5 @@ namespace UnityEngine.Localization.Components
 
 	[Serializable]
 	public class UnityEventFont : UnityEvent<TMP_FontAsset> { }
-
 
 }
